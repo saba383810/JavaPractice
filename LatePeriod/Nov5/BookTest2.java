@@ -9,20 +9,16 @@ public class BookTest2 {
         Random r = new Random();
         long start,end;
         ArrayList<Book> ar = new ArrayList<>();
-        for(int i=0;i<100000;i++)
-            ar.add(new Book("Book"+i,r.nextInt(1000)));
+
         LinkedList<Book> link = new LinkedList<>();
-        for(int i=0;i<100000;i++)
-            link.add(new Book("Book"+i,r.nextInt(1000)));
 
-
-
+        
         System.out.println("-----①-----");
         //------ArrayList-------
         start = System.currentTimeMillis();
 
         for(int i=0;i<100000;i++)
-            ar.get(i);
+            ar.add(new Book("Book"+i,r.nextInt(1000)));
 
         end = System.currentTimeMillis();
         System.out.println("処理速度(array):"+(end-start)+"ms");
@@ -31,7 +27,7 @@ public class BookTest2 {
         start = System.currentTimeMillis();
 
         for(int i=0;i<100000;i++)
-            link.get(i);
+            link.add(new Book("Book"+i,r.nextInt(1000)));
 
         end = System.currentTimeMillis();
         System.out.println("処理速度(Linked):"+(end-start)+"ms");
